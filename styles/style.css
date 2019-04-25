@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400');
+
+html {
+	box-sizing: border-box;
+}
+
+*, 
+*:before,
+*:after{
+	box-sizing: inherit;
+}
+
+body{
+	background-color: #fff;
+	color: #000;
+  font-family: avenir, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto !important;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+        "title title  title"
+        "menu  menu  menu"
+        "main  main  main"
+        "main1  main1  main1"
+        "main2  main2  main2"
+        "foot  foot  foot"; 
+  grid-gap: 10px;
+}
+
+.header{
+  grid-area: title;
+  background-color: #C0C0C0;
+  padding-right: 1em;
+} 
+
+#menu{
+  grid-area: menu;
+  background-color: #C0C0C0;
+}
+
+.main{
+  grid-area: main;
+  background-color: #C0C0C0;
+  padding: 0.2em 1em;
+}
+
+.main1{
+  grid-area: main1;
+  background-color: #C0C0C0;
+  padding: 0.2em 1em;
+}
+
+.main2{
+  grid-area: main2;
+  background-color: #C0C0C0;
+  padding: 0.2em 1em;
+}
+
+.foot {
+  grid-area: foot;
+  background-color: #C0C0C0;
+  padding: 0.2em 1em;
+}
+
+/*---------------Header---------------*/
+.logo{
+  width: 75px;
+  height: 100%;
+  position: relative;
+  padding-left: 5%;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+}
+
+.titel-hci > h1{
+  font-family: "Quicksand";
+  text-align: center;
+}
+
+/*---------------Nav styles---------------*/
+nav {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  float: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  overflow: hidden;
+  height: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  flex-grow: 1;
+  display: flex;
+  padding: 1em;
+  margin: 0.4em;
+  list-style: none;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+nav ul li:hover {
+  background-color: rgba(50, 50, 50, 0.5);
+}
+
+nav > ul > li > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*---------------Hamburger menu---------------*/
+.menutoggle{
+  margin-left: auto;
+}
+
+.menutoggle a{
+  font-size: 2em;
+  color: #000;
+  text-decoration: none;
+}
+
+.active{
+  max-height: 670px;
+  transition: max-height 1s;
+}
+
+.inactive{
+  max-height: 0px;
+  transition: max-height 1s;
+}
+
+/*---------------Teksten---------------*/
+h1 {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+h2, h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 0.2em;
+}
+
+h3 {
+  font-size: 0.8em;
+}
+
+/*---------------Home---------------*/
+#home{
+  float: left;
+}
+
+.djenna-foto{
+  width: 175px;
+  transform: rotate(90deg);
+}
+
+/*---------------Footer---------------*/
+footer{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+footer p{
+    font-size: 0.8em;
+    text-align: center;
+}
+
+/*---------------Tablet---------------*/
+@media only screen and (min-width: 601px){
+  .logo{
+    padding-left: 1%;
+    width: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  nav ul{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+  }
+
+  nav ul li {
+    padding: 0.5em;
+    border-bottom: unset;
+    background-color: #A1BCBC;
+  }
+
+  .menutoggle{
+    display: none;
+  }
+
+  .active, .inactive{
+    max-height: unset;
+  }
+}
