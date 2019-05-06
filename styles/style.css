@@ -78,9 +78,11 @@ header {
   align-content: center;
 }
 
-.titel-hci > h1{
+.titel-hci{
   font-family: "Quicksand";
   text-align: center;
+  font-size: 25px;
+  top: 20px;
 }
 
 /*---------------Nav styles---------------*/
@@ -144,12 +146,12 @@ nav > ul > li > a {
 }
 
 /*---------------Teksten---------------*/
-h1 {
+/*h1 {
   text-align: center;
   font-size: 1.2em;
 }
 
-h2, h3 {
+h2 {
   font-size: 1.5em;
   font-weight: bold;
   border-radius: 0.2em;
@@ -157,17 +159,50 @@ h2, h3 {
 
 h3 {
   font-size: 0.8em;
-}
+}*/
 
 /*---------------Home---------------*/
 #home{
-  float: left;
+
 }
 
 .djenna-foto{
-  width: 175px;
-  transform: rotate(90deg);
+  width: 300px;
+  padding: 5px;
+  float: left;
 }
+
+/*---------------Wearables---------------*/
+#wearables{
+
+}
+
+#wearables-tat{
+  width: 50%;
+  height: auto;
+}
+
+#wearables-chart{
+  width: 10%;
+  height: auto;
+}
+
+/*---------------Playful interfaces---------------*/
+
+/*---------------Articifial creatures---------------*/
+
+/*---------------AR & VR---------------*/
+
+/*---------------Arduino---------------*/
+
+/*---------------VR environments---------------*/
+
+/*---------------Computer vision---------------*/
+
+/*---------------Excursion---------------*/
+
+/*---------------Lab weeks---------------*/
+
 
 /*---------------Footer---------------*/
 footer{
@@ -180,8 +215,8 @@ footer p{
     text-align: center;
 }
 
-/*---------------Tablet---------------*/
-@media only screen and (min-width: 601px){
+/*---------------Tablet en groter---------------*/
+@media only screen and (min-width: 900px){
   .logo{
     padding-left: 1%;
     width: 100px;
@@ -210,5 +245,11 @@ footer p{
 
   .active, .inactive{
     max-height: unset;
+  }
+
+  .djenna-foto{
+    width: 300px;
+    padding: 5px;
+    float: right;
   }
 }
