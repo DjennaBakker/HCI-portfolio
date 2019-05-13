@@ -284,7 +284,7 @@ h3 {
 }
 
 .language-css{
-  width: 65%;
+  width: 90%;
 }
 /*---------------VR environments---------------*/
 
@@ -341,5 +341,20 @@ footer p{
     width: 300px;
     padding: 5px;
     float: right;
+  }
+
+  /*---------------Arduino---------------*/
+  .arduino-vid{
+    width: 320px;
+    height: auto;
+  }
+
+  .arduino-foto{
+    width: 320px;
+    height: auto;
+  }
+
+  .language-css{
+    width: 65%;
   }
 }
