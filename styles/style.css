@@ -273,7 +273,19 @@ h3 {
 /*---------------AR & VR---------------*/
 
 /*---------------Arduino---------------*/
+.arduino-vid{
+  width: 320px;
+  height: auto;
+}
 
+.arduino-foto{
+  width: 320px;
+  height: auto;
+}
+
+.language-css{
+  width: 65%;
+}
 /*---------------VR environments---------------*/
 
 /*---------------Computer vision---------------*/

@@ -5,8 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link type="text/css" href="styles/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-tomorrow.min.css"/>
 
 		<title>Portfolio</title>
+
 	</head>
 	<body>
 	  	<header class="grid-item header">
@@ -34,63 +36,417 @@
 			</ul>
 	    </nav>
 
-	    <main class="grid-item main">
+	    <main class="grid-item main arduino">
 	    	<h1>Opdrachten</h1>
+
+	    	<!-- Arduino is an open-source electronics platform for building prototypes. It is based on flexible, easy-to-use hardware and software. Intended for artists, designers and anyone interested in creating interactive objects or environments. Arduino consists of an open source micro-controller and a software environment to program
+			it in. -->
+
+			<h3>Introductie</h3>
+			<p>Wat is Arduino? Arduino is een elektronisch platform voor het bouwen van prototypes.</p>
 
 	    	<!-- Write a text in your own words (± 150 words) per exercise so that the visitor of your portfolio understands what you have done. Include the text, code and pictures/videos  -->
 
+<!-----------------Opdracht 3c----------------->
 	    	<h3>Opdracht 3c</h3>
-		    	<p>Tekst</p>
-		    	<p>Code</p>
-		    	<video width="320" height="240" autoplay>
-		    		<source src="images/3c.mp4" type="video/mp4">
-		    	</video>
+		    	<p>Tekst:</p>
+		    		<p>C. Green blinks twice as fast as yellow.</p>
+		    	<p>Code:</p>
+		    		<pre><code class="language-css">
+void setup(){
+	pinMode(13, OUTPUT);
+	pinMode(12, OUTPUT);
+}
 
+void loop(){
+	digitalWrite(13, HIGH);
+	digitalWrite(12, HIGH);
+	delay(500);
+
+	digitalWrite(13, LOW);
+	digitalWrite(12, HIGH);
+	delay(500);
+
+	digitalWrite(13, HIGH);
+	digitalWrite(12, LOW);
+	delay(500);
+
+	digitalWrite(13, LOW);
+	digitalWrite(12, LOW);
+	delay(500);
+}
+					 </code></pre>
+
+		    	<p>Video/foto's:</p>
+			    	<video src="images/3c.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 4c----------------->
 	    	<h3>Opdracht 4c</h3>
 		    	<p>Tekst</p>
+		    		<p>C. Extend the code so that one LED slowly fades in and the other fades out at the same
+					time.</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+int greenLedPin = 10;
+int yellowLedPin = 9;
 
+void setup(){
+	pinMode(greenLedPin, OUTPUT);
+	pinMode(yellowLedPin, OUTPUT);
+}
+
+void loop(){
+	for (int brightness=0; brightness < 256; brightness++){
+		analogWrite(greenLedPin, brightness);
+		analogWrite(yellowLedPin, 256 - brightness);
+		delay(10);
+	}
+
+	for (int brightness=256; brightness >= 0; brightness--){
+		analogWrite(greenLedPin, brightness);
+		analogWrite(yellowLedPin, 256 - brightness);
+		delay(10);
+	}
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+			    	<video src="images/4c.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+<!-----------------Opdracht 6c----------------->
 	    	<h3>Opdracht 6c</h3>
 		    	<p>Tekst</p>
+		    		<p>C. Change the code so that one LED fades in while the other fades out and vice versa.</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+float sensorValue = 0; 
+int sensorPin = A0; 
+int greenLedPin = 10;
+int yellowLedPin = 9;
+int yellowValue = 9;
+int greenValue = 10;
 
+void setup() { 
+  	pinMode(sensorPin, INPUT); 
+  	Serial.begin(9600);
+  	pinMode(greenLedPin, OUTPUT); 
+  	pinMode(yellowLedPin, OUTPUT);
+}
+
+void loop() {
+  	sensorValue = analogRead(sensorPin);
+		yellowValue = map(sensorValue, 0, 1024, 0, 255);
+		analogWrite(9, yellowValue);
+		greenValue = map(sensorValue, 0, 1024, 255, 0);
+		analogWrite(10, greenValue);
+  
+  	Serial.println(sensorValue); 
+  	delay(200); 
+}
+					 </code></pre>
+		    	<p>Video/foto's</p>
+		    		<video src="images/6c.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 7----------------->
 	    	<h3>Opdracht 7</h3>
 		    	<p>Tekst</p>
-		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<p>1. Use the code you wrote in exercise 6A. Comment out the line you wrote to scale the sensor value. Do this by adding // at the beginning of the line. This line is now
+					temporarily disabled.
 
+					2. Verify the code and upload to the board.
+
+					3. Open the Serial Monitor. What you see now is the amount of light that the LDR
+					perceives expressed in a number. Under ideal circumstances this range is between 0
+					and 1023. But in practice, the measured range is a lot smaller. If you hold you hand
+					over the LDR, you should see a drop in this value. Write down the highest
+					(unobscured) and lowest (obscured) value. This the actual range the sensor has under
+					these lighting conditions.
+
+					4. Uncomment the line you commented and change it to rescale the sensor value in the
+					proper way. The object here is to rescale the actual range you just wrote down to the
+					0-255 range the LED’s accept. (You could also use the map() function if this makes
+					things easier)
+
+					5. Verify the code and upload to the board. If all went well, the LEDs should now fade
+					according to the amount of light that the LDR perceives.</p>
+		    	<p>Code</p>
+		    		<pre><code class="language-css">
+float sensorValue = 0;
+float sensorPin = A0;
+
+int greenLedPin = 10;
+int yellowLedPin = 9;
+
+void setup (){
+	pinMode(sensorPin, INPUT);
+	Serial.begin(9600);
+
+	pinMode(greenLedPin, OUTPUT);
+	pinMode(yellowLedPin, OUTPUT);
+}
+
+void loop(){
+	sensorValue = analogRead(sensorPin);
+
+	sensorValue = (sensorValue/255)*255;
+
+	analogWrite(greenLedPin, sensorValue);
+	analogWrite(yellowLedPin, sensorValue);
+
+	Serial.println(sensorValue);
+
+	delay(20);
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/7.3.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+					<video src="images/7.5.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+					<img src="images/8.2.jpeg" class="arduino-foto">
+
+<!-----------------Opdracht 8----------------->
 	    	<h3>Opdracht 8</h3>
 		    	<p>Tekst</p>
+		    		<p>1. First of, try to imagine, given what you know
+					about voltage dividers what would happen if
+					both R1 and R2 are LDR’s. What would that
+					circuit measure? And in what way?
+					2. Try to theoretically verify this by using the
+					formula on the previous page. Do this by
+					calculating some test cases: One LDR dark, the
+					other one dark, both dark and both light.
+					3. Build the circuit shown in the image and test if
+					you were right. For this you can use the code
+					from exercise 5 and the Serial Monitor/Plotter.</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<p>Code</p>
+		    		<pre><code class="language-css">
+int sensorValue = 0; 
+int sensorPin = A0; 
 
+void setup() {
+	pinMode(sensorPin, INPUT);
+	Serial.begin(9600);
+}
+
+void loop() {
+	sensorValue = analogRead(sensorPin); 
+
+	Serial.println(sensorValue); 
+	delay(200); 
+
+	sensorValue = (sensorValue/1023)*255;
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/8.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 9----------------->
 	    	<h3>Opdracht 9b</h3>
 		    	<p>Tekst</p>
+		    		<p>B. Now try to read the Processing code. We do not expect you to understand each line at first glance, but you should recognise some functions. Change the Processing code to use the sensor value in an other interesting way. For example, rotate a rectangle or move a triangle across the screen.</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    	<p>Arduino</p>
+		    		<pre><code class="language-css">
+float sensorValue = 0; 
+int sensorPin = A0; 
+int greenLedPin = 10; 
 
+void setup() {
+	Serial.begin(9600); 
+	pinMode(sensorPin, INPUT); 
+	pinMode(greenLedPin, OUTPUT); 
+}
+
+void loop() {
+	sensorValue = analogRead(sensorPin); 
+	sensorValue = (sensorValue/1023)*255; 
+	analogWrite(greenLedPin, sensorValue);
+	Serial.println(sensorValue); 
+	delay(100); 
+}
+					 </code></pre>
+					 <p>Processing</p>
+					 	<pre><code class="language-css">
+import processing.serial.*;
+
+Serial myPort;
+String sensorReading="";
+
+void setup() {
+	size(800, 800);
+	myPort = new Serial(this, Serial.list()[1], 9600);
+	myPort.bufferUntil('\n');
+}
+
+void draw() {
+	background(255);
+	fill(0);
+	text("Sensor Reading: " + sensorReading, 20, 20);
+	triangle(2, 2, 2, 2, float(sensorReading), float(sensorReading));
+}
+
+void serialEvent (Serial myPort) {
+	sensorReading = myPort.readStringUntil('\n');
+}					 
+				</code></pre>
+				
+		    	<p>Video/foto's</p>
+		    		<video src="images/9b.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 10f----------------->
 	    	<h3>Opdracht 10f</h3>
 		    	<p>Tekst</p>
+		    		<p>F. The LED lights up when one button of the two buttons is pressed, but not both. </p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+int ledPin = 13;  
+int buttonPinL = 3;
+int buttonPinR = 2; 
 
+int buttonState = 0;  
+
+void setup() {
+	pinMode(ledPin, OUTPUT);
+	pinMode(buttonPinL, INPUT);
+	pinMode(buttonPinR, INPUT);
+}
+
+void loop() {
+	if (digitalRead(buttonPinL) && digitalRead(buttonPinR)) {
+		digitalWrite(ledPin, LOW);
+	} else {
+		digitalWrite(ledPin, digitalRead(buttonPinR) || digitalRead(buttonPinR));
+	}
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/10.f.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 11b----------------->
 	    	<h3>Opdracht 11b</h3>
 		    	<p>Tekst</p>
+		    		<p>B. Change the code in a way that the servo will move in a more interesting way. Try to make the servo move in a funny, rhythmical way. (or teach it how to dance)</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+#include <Servo.h>
+Servo myServo; 
+int servoPin = 9; 
+int pos = 0; 
 
+void setup() {
+	myServo.attach(servoPin); 
+}
+
+void loop() {
+	for(pos = 0; pos < 160; pos += 1){
+	myServo.write(pos); 
+	delay(1); 
+	}
+ 
+	for(pos = 160; pos >= 1; pos -= 1){
+	myServo.write(pos); 
+	delay(10); 
+	}
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/11.b.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 12b----------------->
 	    	<h3>Opdracht 12b</h3>
 		    	<p>Tekst</p>
+		    		<p>B. Build the circuit shown in the image.
+					This circuit contains two buttons. These buttons should control the servo. One button should move the servo clockwise and the other counter-clockwise.</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+#include <Servo.h>
 
+Servo myServo; 
+int servoPin = 9; 
+int pos = 0; 
+
+int buttonPinL = 3; 
+int buttonPinR = 2; 
+
+void setup() {
+	myServo.attach(servoPin); 
+	pinMode(buttonPinL, INPUT); 
+	pinMode(buttonPinR, INPUT); 
+}
+
+void loop() {
+	if(digitalRead(buttonPinL)){
+		myServo.write(160);
+	}
+	if(digitalRead(buttonPinR)){
+		myServo.write(0);
+	}
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/12.b.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
+
+<!-----------------Opdracht 13b----------------->
 	    	<h3>Opdracht 13b</h3>
 		    	<p>Tekst</p>
+		    		<p>B. Change and expand the code so that it plays a creative melody. You can use the diagram to choose your frequencies</p>
 		    	<p>Code</p>
-		    	<p>Video/foto's</p>
+		    		<pre><code class="language-css">
+int speakerPin = 8;
 
+void setup() {
+	pinMode(speakerPin, OUTPUT);
+}
+
+void loop() {
+	tone(speakerPin, 349, 200); 
+	delay(250); 
+
+	tone(speakerPin, 294, 466);
+	delay(250); 
+
+	tone(speakerPin, 523, 200); 
+	delay(250); 
+
+	tone(speakerPin, 262, 523); 
+	delay(500); 
+
+	tone(speakerPin, 294, 523); 
+	delay(500); 
+
+	tone(speakerPin, 262, 523); 
+	delay(500); 
+}
+					 </code></pre>
+
+		    	<p>Video/foto's</p>
+		    		<video src="images/13.b.mp4" controls class="arduino-vid">
+						  Uw 
+					</video>
 	    </main>
 
 	    <footer class="grid-item foot">
@@ -98,6 +454,8 @@
 	    </footer>
 
 	  <script type="text/javascript" src="scripts/script.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+
 	</body>
 </html>
 
