@@ -179,6 +179,14 @@ a:visited{
   /*float: left;*/
 }
 
+#main1-index{
+  display: none;
+}
+
+#main2-index{
+  display: none;
+}
+
 /*---------------Wearables---------------*/
 #wearables{
 
