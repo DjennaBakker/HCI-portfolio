@@ -68,7 +68,7 @@ body{
 
 .foot {
   grid-area: foot;
-  background-color: #ffe6e6;
+  background-color: #c7e8e6/*#ffe6e6*/;
   padding: 0.2em 1em;
 }
 
@@ -126,12 +126,19 @@ nav ul li {
 }
 
 nav ul li:hover {
-  background-color: #EEC8C6;
+  background-color: #c7e8e6;
 }
 
 nav > ul > li > a {
   color: #fff;
   text-decoration: none;
+}
+
+.li-active{
+  color: black;
+  font-weight: bold;
+  background-color: #c7e8e6;
+  padding: 10px 16px;
 }
 
 /*---------------Hamburger menu---------------*/
@@ -289,7 +296,7 @@ hr{
 }
 /*---------------VR environments---------------*/
 .vr-video{
-  
+
 }
 /*---------------Computer vision---------------*/
 
@@ -354,20 +361,6 @@ footer p{
     float: right;
   }
 
-  /*---------------Arduino---------------*/
-  .arduino-vid{
-    width: 320px;
-    height: auto;
-  }
-
-  .arduino-foto{
-    width: 320px;
-    height: auto;
-  }
-
-  .language-css{
-    width: 65%;
-  }
   /*---------------Playful interfaces---------------*/
   #playful-vid{
     width: 640px;
@@ -402,5 +395,20 @@ footer p{
   #ar-vid{
     width: 100%;
     height: 500px;
+  }
+
+  /*---------------Arduino---------------*/
+  .arduino-vid{
+    width: 320px;
+    height: auto;
+  }
+
+  .arduino-foto{
+    width: 320px;
+    height: auto;
+  }
+
+  .language-css{
+    width: 65%;
   }
 }
