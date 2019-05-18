@@ -74,10 +74,9 @@ body{
 }
 
 header {
-  /*display: flex;*/
-  text-align: left; 
+  display: flex;
   flex-flow: row;
-  float: left;
+  /*float: left;*/
 }
 
 .titel-hci{
