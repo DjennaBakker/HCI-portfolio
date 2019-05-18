@@ -76,6 +76,7 @@ header {
   display: flex;
   flex-flow: row;
   align-content: center;
+  text-align: center;
 }
 
 .titel-hci{
@@ -154,25 +155,14 @@ h3 {
 
 a{
   text-decoration: none;
-}
-
-a:link{
-  color: grey;
+  color: white;
 }
 
 a:hover{
   color: black;
 }
 
-a:visited{
-  color: white;
-}
-
 /*---------------Home---------------*/
-#home{
-
-}
-
 .djenna-foto{
   width: 60%;
   padding: 5px;
@@ -278,6 +268,11 @@ footer p{
 
 #link-footer{
   text-decoration: none;
+  color: white;
+}
+
+#link-footer:hover{
+  color: black;
 }
 /*---------------Tablet en groter---------------*/
 @media only screen and (min-width: 900px){
