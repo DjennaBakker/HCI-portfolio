@@ -7,7 +7,7 @@
 		<link type="text/css" href="styles/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-tomorrow.min.css"/>
 
-		<title>Portfolio</title>
+		<title>HCI-Portfolio</title>
 
 	</head>
 	<body>
@@ -39,20 +39,15 @@
 	    <main class="grid-item main arduino">
 	    	<h1>Opdrachten</h1>
 
-	    	<!-- Arduino is an open-source electronics platform for building prototypes. It is based on flexible, easy-to-use hardware and software. Intended for artists, designers and anyone interested in creating interactive objects or environments. Arduino consists of an open source micro-controller and a software environment to program
-			it in. -->
-
 			<h3>Introductie</h3>
-			<p>Wat is Arduino? Arduino is een elektronisch platform voor het bouwen van prototypes.</p>
+			<p>Wat is Arduino? Arduino is een elektronisch platform met een open bron (source) voor het bouwen van allerlei verschillende prototypes. Er kunnen heel veel dingen gebruikt worden met een Arduino, zoals lampjes, speakers, servo motor en nog veel meer. Vanuit het vak HCI heb ik aantal opdrachten gekregen om te leren werken met een Arduino, en om te leren wat ik er allemaal mee kan doen. Een aantal van deze opdrachten kun je hieronder lezen en zien. </p>
 
 	    	<!-- Write a text in your own words (± 150 words) per exercise so that the visitor of your portfolio understands what you have done. Include the text, code and pictures/videos  -->
 
 <!-----------------Opdracht 3c----------------->
-	    	<h3>Opdracht 3c</h3>
-		    	<p>Tekst:</p>
-		    		<p>C. Green blinks twice as fast as yellow.</p>
-		    	<p>Code:</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 3c</h3>
+	<p>De eerste opdracht is om het groene lampje twee keer zo snel te laten knipperen als het gele lampje. Dit heb ik gedaan door de lampjes in een bepaalde volgorde aan en uit te laten gaan, zodat ze tegelijk beginnen maar een andere snelheid in verandering hebben. </p>
+	<pre><code class="language-css">
 void setup(){
 	pinMode(13, OUTPUT);
 	pinMode(12, OUTPUT);
@@ -75,20 +70,13 @@ void loop(){
 	digitalWrite(12, LOW);
 	delay(500);
 }
-					 </code></pre>
-
-		    	<p>Video/foto's:</p>
-			    	<video src="images/3c.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+   	<video src="images/3c.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 4c----------------->
-	    	<h3>Opdracht 4c</h3>
-		    	<p>Tekst</p>
-		    		<p>C. Extend the code so that one LED slowly fades in and the other fades out at the same
-					time.</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 4c</h3>
+	<p>De volgende opdracht is dat terwijl een lampje van uit naar aan vervaagt, vervaagt het andere lampje van uit naar aan. Dit gebeurt tegelijkertijd, dus de lampjes doen precies het tegenovergestelde van elkaar op hetzelfde moment. Dit is gedaan door middel van een rekensom in de code met de ‘brightness’ ofwel helderheid van de lampjes. </p>
+	<pre><code class="language-css">
 int greenLedPin = 10;
 int yellowLedPin = 9;
 
@@ -110,18 +98,13 @@ void loop(){
 		delay(10);
 	}
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-			    	<video src="images/4c.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
+	</code></pre>
+	<video src="images/4c.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 6c----------------->
-	    	<h3>Opdracht 6c</h3>
-		    	<p>Tekst</p>
-		    		<p>C. Change the code so that one LED fades in while the other fades out and vice versa.</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 6c</h3>
+	<p>Hier moet ik wederom twee lampjes precies het tegenovergestelde van elkaar laten doen; terwijl het ene lampje van uit naar aan gaat, gaat het andere lampje van aan naar uit. Maar bij deze opdracht heb ik gebruik gemaakt van een ‘potmeter’, dit is een apparaatje waar ik aan kon draaien. Door middel van de juiste code toegevoegd, zodat als ik aan de potmeter draaide, dat de lampjes deden wat ik wil. </p>
+	<pre><code class="language-css">
 float sensorValue = 0; 
 int sensorPin = A0; 
 int greenLedPin = 10;
@@ -146,36 +129,13 @@ void loop() {
   	Serial.println(sensorValue); 
   	delay(200); 
 }
-					 </code></pre>
-		    	<p>Video/foto's</p>
-		    		<video src="images/6c.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/6c.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 7----------------->
-	    	<h3>Opdracht 7</h3>
-		    	<p>Tekst</p>
-		    		<p>1. Use the code you wrote in exercise 6A. Comment out the line you wrote to scale the sensor value. Do this by adding // at the beginning of the line. This line is now
-					temporarily disabled.
-
-					2. Verify the code and upload to the board.
-
-					3. Open the Serial Monitor. What you see now is the amount of light that the LDR
-					perceives expressed in a number. Under ideal circumstances this range is between 0
-					and 1023. But in practice, the measured range is a lot smaller. If you hold you hand
-					over the LDR, you should see a drop in this value. Write down the highest
-					(unobscured) and lowest (obscured) value. This the actual range the sensor has under
-					these lighting conditions.
-
-					4. Uncomment the line you commented and change it to rescale the sensor value in the
-					proper way. The object here is to rescale the actual range you just wrote down to the
-					0-255 range the LED’s accept. (You could also use the map() function if this makes
-					things easier)
-
-					5. Verify the code and upload to the board. If all went well, the LEDs should now fade
-					according to the amount of light that the LDR perceives.</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 7</h3>
+	<p>Bij deze opdracht moet ik de ‘brightness’ ofwel de helderheid van de lampjes aanpassen met behulp van een licht sensor. Hoe meer licht de sensor ving vanuit de omgeving, des te feller het lampje werd, en andersom. Met een programma van de Arduino kon de helderheid van het lampje ook uitgedrukt worden in getallen. Het laagste getal dat ik gemeten heb was ‘2’ en het hoogste getal dat ik heb gemeten was ‘1023’. Dit is ook wel logisch, maar het laagste wat de sensor kan meten is ‘0’ en het hoogste is ‘1023’, dus daar zat ik goed bij in de buurt. </p>
+	<pre><code class="language-css">
 float sensorValue = 0;
 float sensorPin = A0;
 
@@ -202,34 +162,18 @@ void loop(){
 
 	delay(20);
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/7.3.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-					<video src="images/7.5.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-					<img src="images/8.2.jpeg" class="arduino-foto">
-
+	</code></pre>
+	<video src="images/7.3.mp4" controls muted class="arduino-vid"></video>
+	<video src="images/7.5.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 8----------------->
-	    	<h3>Opdracht 8</h3>
-		    	<p>Tekst</p>
-		    		<p>1. First of, try to imagine, given what you know
-					about voltage dividers what would happen if
-					both R1 and R2 are LDR’s. What would that
-					circuit measure? And in what way?
-					2. Try to theoretically verify this by using the
-					formula on the previous page. Do this by
-					calculating some test cases: One LDR dark, the
-					other one dark, both dark and both light.
-					3. Build the circuit shown in the image and test if
-					you were right. For this you can use the code
-					from exercise 5 and the Serial Monitor/Plotter.</p>
-		    	<p>Code</p>
-		    		<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 8</h3>
+	<p>8.1 Het circuit dat bij deze opdracht gebruikt is, betekent dat het alleen maar het licht kan meten. </p>
+	<p>8.2 De gebruikte formules zijn terug te vinden in de foto hieronder. </p>
+	<img src="images/8berekening.png" class="arduino-foto">
+	<img src="images/8-berekening.png" class="arduino-foto">
+	
+	<pre><code class="language-css">
 int sensorValue = 0; 
 int sensorPin = A0; 
 
@@ -246,20 +190,15 @@ void loop() {
 
 	sensorValue = (sensorValue/1023)*255;
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/8.mp4" controls class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/8.mp4" controls class="arduino-vid">
+	</video>
+<hr>
 <!-----------------Opdracht 9----------------->
-	    	<h3>Opdracht 9b</h3>
-		    	<p>Tekst</p>
-		    		<p>B. Now try to read the Processing code. We do not expect you to understand each line at first glance, but you should recognise some functions. Change the Processing code to use the sensor value in an other interesting way. For example, rotate a rectangle or move a triangle across the screen.</p>
-		    	<p>Code</p>
-		    	<p>Arduino</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 9b</h3>
+	<p>Bij deze opdracht heb ik niet alleen het programma van Arduino gebruikt, maar heb ik ook het programma ‘Processing gebruikt’. Met dit programma kon ik een soort tekening maken, die ik kon zien op mijn laptop. Als voorbeeld kreeg ik een cirkel te zien, en ik moest er een ander voorwerp of iets mee laten zien, dat veranderde op het moment dat er meer of minder licht in de licht-sensor kwam. Ik heb een diagonale lijn gemaakt die korter of langer werd, dat lag aan de hoeveel licht dat er in de sensor kwam. </p>
+	<p>Arduino</p>
+	<pre><code class="language-css">
 float sensorValue = 0; 
 int sensorPin = A0; 
 int greenLedPin = 10; 
@@ -277,9 +216,9 @@ void loop() {
 	Serial.println(sensorValue); 
 	delay(100); 
 }
-					 </code></pre>
-					 <p>Processing</p>
-					 	<pre><code class="language-css">
+	</code></pre>
+	<p>Processing</p>
+	<pre><code class="language-css">
 import processing.serial.*;
 
 Serial myPort;
@@ -301,19 +240,13 @@ void draw() {
 void serialEvent (Serial myPort) {
 	sensorReading = myPort.readStringUntil('\n');
 }					 
-				</code></pre>
-				
-		    	<p>Video/foto's</p>
-		    		<video src="images/9b.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/9b.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 10f----------------->
-	    	<h3>Opdracht 10f</h3>
-		    	<p>Tekst</p>
-		    		<p>F. The LED lights up when one button of the two buttons is pressed, but not both. </p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 10f</h3>
+	<p>Bij deze opdracht moest ik werken met knopjes en lampjes. Met een bepaalde code kon ervoor zorgen dat als ik het knopje indrukte, dat een lampje aan of uit ging. Nu moest ik voor deze opdracht ervoor zorgen dat als ik een knopje indrukte dat er een lampje ging branden, maar het lampje mocht niet branden als ik beide knopjes indrukte. </p>
+	<pre><code class="language-css">
 int ledPin = 13;  
 int buttonPinL = 3;
 int buttonPinR = 2; 
@@ -333,19 +266,13 @@ void loop() {
 		digitalWrite(ledPin, digitalRead(buttonPinR) || digitalRead(buttonPinR));
 	}
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/10.f.mp4" controls muted class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/10.f.mp4" controls muted class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 11b----------------->
-	    	<h3>Opdracht 11b</h3>
-		    	<p>Tekst</p>
-		    		<p>B. Change the code in a way that the servo will move in a more interesting way. Try to make the servo move in a funny, rhythmical way. (or teach it how to dance)</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 11b</h3>
+	<p>Een servo motor is een motor die heel accuraat kan bewegen, zoals bijvoorbeeld in een op afstand bestuurbare auto. Ik moest de servo gebruiken om hem op een grappige manier te laten bewegen. </p>
+	<pre><code class="language-css">
 #include <Servo.h>
 Servo myServo; 
 int servoPin = 9; 
@@ -366,20 +293,13 @@ void loop() {
 	delay(10); 
 	}
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/11.b.mp4" controls class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/11.b.mp4" controls class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 12b----------------->
-	    	<h3>Opdracht 12b</h3>
-		    	<p>Tekst</p>
-		    		<p>B. Build the circuit shown in the image.
-					This circuit contains two buttons. These buttons should control the servo. One button should move the servo clockwise and the other counter-clockwise.</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 12b</h3>
+	<p>Hier was het de bedoeling om de knopjes en de servo motor te gebruiken en deze met elkaar te verbinden. Als ik op het ene knopje drukte, bewoog de servo naar links en met het andere knopje bewoog hij weer terug naar het midden. </p>
+	<pre><code class="language-css">
 #include <Servo.h>
 
 Servo myServo; 
@@ -403,19 +323,13 @@ void loop() {
 		myServo.write(0);
 	}
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/12.b.mp4" controls class="arduino-vid">
-						  Uw 
-					</video>
-
+	</code></pre>
+	<video src="images/12.b.mp4" controls class="arduino-vid"></video>
+<hr>
 <!-----------------Opdracht 13b----------------->
-	    	<h3>Opdracht 13b</h3>
-		    	<p>Tekst</p>
-		    		<p>B. Change and expand the code so that it plays a creative melody. You can use the diagram to choose your frequencies</p>
-		    	<p>Code</p>
-		    		<pre><code class="language-css">
+<h3>Opdracht 13b</h3>
+	<p>Tot slot moest ik werken met een speaker. Het was de bedoeling om de speaker aan te sluiten en bepaalde frequenties te kiezen in mijn code. Met deze frequenties werd een liedje afgespeeld, die ik zelf had samengesteld. </p>
+	<pre><code class="language-css">
 int speakerPin = 8;
 
 void setup() {
@@ -441,12 +355,9 @@ void loop() {
 	tone(speakerPin, 262, 523); 
 	delay(500); 
 }
-					 </code></pre>
-
-		    	<p>Video/foto's</p>
-		    		<video src="images/13.b.mp4" controls class="arduino-vid">
-						  Uw 
-					</video>
+	</code></pre>
+	<video src="images/13.b.mp4" controls class="arduino-vid"></video>
+	    
 	    </main>
 
 	    <footer class="grid-item foot">
