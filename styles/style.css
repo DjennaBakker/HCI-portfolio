@@ -299,11 +299,36 @@ hr{
 
 }
 /*---------------Computer vision---------------*/
+.cv-image{
+  width: 320px;
+  height: auto;
+}
 
+.cv-vid{
+  width: 320px;
+  height: auto;
+}
 /*---------------Excursion---------------*/
+.ex-image{
+  width: 320px;
+  height: auto;
+}
+
+#halfrotate{
+  transform: rotate(180deg);
+}
 
 /*---------------Lab weeks---------------*/
+.lab-image{
+  width: 320px;
+  height: auto;
+  /*float: right;*/
+}
 
+.lab-video{
+  width: 320px;
+  height: auto;
+}
 
 /*---------------Footer---------------*/
 footer{
@@ -410,5 +435,11 @@ footer p{
 
   .language-css{
     width: 65%;
+  }
+
+  /*---------------Computer vision---------------*/
+  .cv-image{
+    width: 320px;
+    height: auto;
   }
 }
