@@ -190,6 +190,18 @@ a:hover{
   color: black;
 }
 
+.container {
+  position: relative;
+  color: white;
+  /*float: left;*/
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
 /*---------------Home---------------*/
 .djenna-foto{
   width: 60%;
@@ -296,7 +308,13 @@ hr{
 }
 /*---------------VR environments---------------*/
 .vr-video{
+  width: 320px;
+  height: auto;
+}
 
+.vr-image{
+  width: 320px;
+  height: auto;
 }
 /*---------------Computer vision---------------*/
 .cv-image{
@@ -322,7 +340,6 @@ hr{
 .lab-image{
   width: 320px;
   height: auto;
-  /*float: right;*/
 }
 
 .lab-video{
