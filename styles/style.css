@@ -308,7 +308,7 @@ hr{
 }
 /*---------------VR environments---------------*/
 .vr-video{
-  width: 320px;
+  width: 50%;
   height: auto;
 }
 
@@ -344,6 +344,11 @@ hr{
 
 .lab-video{
   width: 320px;
+  height: auto;
+}
+
+.lab-video-product{
+  width: 100%;
   height: auto;
 }
 
@@ -458,5 +463,11 @@ footer p{
   .cv-image{
     width: 320px;
     height: auto;
+  }
+
+  /*---------------Lab weeks---------------*/
+  .lab-video-product{
+    width: ;
+    height: ;
   }
 }
